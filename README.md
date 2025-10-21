@@ -1,14 +1,14 @@
-# 👋  <!-- waving hand --> Welcome to Our 2025-26 USCA Capstone Project
+# Welcome to Our 2025-26 USCA Capstone Project
 Advisor: Dr. Yilian Zhang
 <br>
 Students: Dylan Lott & Brandon Weathers
-## 💡 <!-- lightbulb --> Project Description 
+## Project Description 
 Modern technology allows the protection of sensitive information.​ Naturally, the presence of value leads to people with malicious intent.​ Currently, the file EPSB contains methods used to calculate the CR for a given set of passwords that all belong to a single user. This is a college project and is not intended for serious use.
 <br>
 <br>
 **Our Research Goal:**
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
-## 🏃 <!-- running --> How to Run
+## How to Run
 ### EPSB Algorithm 
 1. Fork this repo
 2. Compile all files ("javac *.java")
@@ -22,10 +22,8 @@ This allowed the user to query the stats about any user from the Synthetic300000
 4. When prompted, input the user's index which with to analyse.
 5. After you are finished viewing desired into, press any key to continue.
 6. If you want to continue querying, enter your next desired user's index or pres ctrl+c to stop the program.
-<br>
-<br>
 
-## 📫  <!-- mail box --> Contacts
+## Contacts
 <table>
     <tr>
         <td>
