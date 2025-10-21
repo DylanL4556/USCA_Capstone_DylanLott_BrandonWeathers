@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 9/20/2025 1:49 AM
+// Last updated: 10/20/2025 10:13 PM
 
 // I have created a class that handles the technical parsing and calculation.
 // I made this disccision so that I can use a single object in both a CLI and GUI versions.
@@ -59,31 +59,30 @@ class EPSB{
     int countSpecialCharacters(String currentPassword){
         int totalSpecialCharacters= 0;
         for(int index = 0; index < currentPassword.length(); index++)
-            if(Pattern.matches("[^A-Za-z0-9]", currentPassword.substring(index, index+1))) totalSpecialCharacters++;
+            // if(Pattern.matches("[^A-Za-z0-9]", currentPassword.substring(index, index+1))) totalSpecialCharacters++;
+            // Better regex, I think
+            if(Pattern.matches("[\\p{P}\\p{S}]", currentPassword.substring(index, index+1))) totalSpecialCharacters++;
         return totalSpecialCharacters;
     }
 
     int getMin(ArrayList<Integer> list){
         int min = list.get(0);
-        for(int index = 0; index < list.size(); index++){
+        for(int index = 0; index < list.size(); index++)
             if(list.get(index).intValue() < min) min = list.get(index);
-        }
         return min;
     }
 
     int getMax(ArrayList<Integer> list){
         int max = list.get(0);
-        for(int index = 0; index < list.size(); index++){
+        for(int index = 0; index < list.size(); index++)
             if(list.get(index).intValue() > max) max = list.get(index);
-        }
         return max;
     }
 
     double getAverage(ArrayList<Integer> list){
         double average = 0;
-        for(int index = 0; index < list.size(); index++){
+        for(int index = 0; index < list.size(); index++)
             average += list.get(index);
-        }
         return average/list.size();
     }
 
