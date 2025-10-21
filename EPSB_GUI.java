@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 9/20/2025 2:10 AM
+// Last updated: 10/20/2025 10:21 PM
 
 // This is a very rough GUI version of the EPSB algorithm.
 // After entering a password at the top, the sitting submit, the variables will
@@ -165,7 +165,6 @@ public class EPSB_GUI extends JPanel{
                 p1.add(new JLabel("   └─Mode", SwingConstants.CENTER));
                 p1.add(lengthMode);
 
-
         // p1.setBorder(new EmptyBorder(100, 100, 100, 100));
         add(p1, BorderLayout.CENTER);
 
@@ -218,19 +217,11 @@ public class EPSB_GUI extends JPanel{
     }
 
     public static void main(String[] args) {
-        // Create a frame
         JFrame frame = new JFrame("GUI implementation of the EPSB algorithm");
-
-        // Create an instance of the applet
         EPSB_GUI applet = new EPSB_GUI();
-
-        // Add the applet to the frame
         frame.add(applet, BorderLayout.CENTER);
-
-        // Invoke applet's init method
         applet.init();
 
-        // Display the frame
         frame.setLocationRelativeTo(null); // Center the frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
