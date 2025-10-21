@@ -9,10 +9,21 @@ Modern technology allows the protection of sensitive information.​ Naturally, 
 **Our Research Goal:**
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 ## 🏃 <!-- running --> How to Run
-This EPSB class is demonstrated with the EPSB_CLI and EPSB_GUI classes. To run either class, please fork this repo, compile all files ("javac *.java"), and run either "java EPSB_CLI" or "java EPSB_GUI".
+### EPSB Algorithm 
+1. Fork this repo
+2. Compile all files ("javac *.java")
+3. Run either "java EPSB_CLI" or "java EPSB_GUI"
+
+### Query CSV
+This allowed the user to query the stats about any user from the Synthetic300000PwPairsV2 dataset.
+1. Fork this repo
+2. Compile all files ("javac *.java")
+3. Run "java EPSB_Parser"
+4. When prompted, input the user's index which with to analyse.
+5. After you are finished viewing desired into, press any key to continue.
+6. If you want to continue querying, enter your next desired user's index or pres ctrl+c to stop the program.
 <br>
 <br>
-Included in this repo are multiple cvs files that (some of which are generated) that represent a users' possible passwords. You can see them if you run "java TextParser".
 
 ## 📫  <!-- mail box --> Contacts
 <table>
