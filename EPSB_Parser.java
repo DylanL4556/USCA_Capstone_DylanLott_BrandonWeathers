@@ -5,34 +5,68 @@ import java.util.*;
 import java.util.regex.*;
 import java.util.HashMap;
 import java.util.Map;
-
-import java.util.*;
+//import java.util.*;
 import java.io.*;
 
 class EPSB_Parser{
     public static final String COMMA_DELIMITER = ",";
     public static void main(String[] args){
         // Parsing the CSV into the 2D linked list
-        ArrayList<ArrayList<String>> dataset1 = new ArrayList<>(), dataset2 = new ArrayList<>(), dataset3 = new ArrayList<>();
+        ArrayList<ArrayList<String>>
+            dataset0 = new ArrayList<>(),
+            dataset1 = new ArrayList<>(),
+            dataset2 = new ArrayList<>(),
+            dataset3 = new ArrayList<>();
         try{
-            Scanner myScanner1 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
-            while(myScanner1.hasNextLine()){
-                dataset1.add(getRecordFromLine(myScanner1.nextLine()));
+            Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
+            System.out.println("Reading in file: Synthetic300000PwPairsV2.csv ...");
+            while(myScanner0.hasNextLine()){
+                dataset0.add(getRecordFromLine(myScanner0.nextLine()));
             }
+            System.out.println("✓ File read complete!");
+        }catch(FileNotFoundException e){
+            System.out.println("File not found.");
+        }
+        try{
+            Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part1.csv"));
+            System.out.println("Reading in file: DataGeneration9_16_25Part1.csv ...");
+            while(myScanner0.hasNextLine()){
+                dataset1.add(getRecordFromLine(myScanner0.nextLine()));
+            }
+            System.out.println("✓ File read complete!");
+        }catch(FileNotFoundException e){
+            System.out.println("File not found.");
+        }
+        try{
+            Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part2.csv"));
+            System.out.println("Reading in file: DataGeneration9_16_25Part2.csv ...");
+            while(myScanner0.hasNextLine()){
+                dataset2.add(getRecordFromLine(myScanner0.nextLine()));
+            }
+            System.out.println("✓ File read complete!");
+        }catch(FileNotFoundException e){
+            System.out.println("File not found.");
+        }
+        try{
+            Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part3.csv"));
+            System.out.println("Reading in file: DataGeneration9_16_25Part3.csv ...");
+            while(myScanner0.hasNextLine()){
+                dataset3.add(getRecordFromLine(myScanner0.nextLine()));
+            }
+            System.out.println("✓ File read complete!");
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }
 
         // Adding all lines of the CSV to a coresponding EPSB, which then
         // does stastical analysis.
-        ArrayList<EPSB> EPSBArrayList = new ArrayList<>();
+        ArrayList<EPSB> EPSBArrayList0 = new ArrayList<>();
         for(int index = 0; index < 20; index++){
-            EPSBArrayList.add(new EPSB());
+            EPSBArrayList0.add(new EPSB());
         }
-
-        for(int index = 0; index < EPSBArrayList.size(); index++){
-            for(String currentPassword : dataset1.get(index)){
-                EPSBArrayList.get(index).addNewPassword(currentPassword);
+        for(int index = 0; index < EPSBArrayList0.size(); index++){
+            for(String currentPassword : dataset0.get(index)){
+                EPSBArrayList0.get(index).addNewPassword(currentPassword);
             }
         }
 
@@ -41,7 +75,7 @@ class EPSB_Parser{
             System.out.println("Which user do you wish to analyse?");
             int userNumber = myScanner.nextInt();
             userNumber--;
-            getPasswordsStats(EPSBArrayList.get(userNumber));
+            getPasswordsStats(EPSBArrayList0.get(userNumber));
 
             System.out.println();
             System.out.println("Press any key to continue.");

@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/05/2025 2:57 PM
+// Last updated: 10/21/2025 11:11 PM
 
 // This class simply reads throuhg a given CVS files and creates a
 // 2D ArrayList to store every word.
@@ -16,17 +16,17 @@ class TextParser{
 
         // This scans the each file line by line.
         try{
-            Scanner myScanner1 = new Scanner(new File("DataGeneration9_16_25Part1.cvs"));
+            Scanner myScanner1 = new Scanner(new File("DataGeneration9_16_25Part1.csv"));
             while(myScanner1.hasNextLine()){
                 dataset1.add(getRecordFromLine(myScanner1.nextLine()));
             }
 
-            Scanner myScanner2 = new Scanner(new File("DataGeneration9_16_25Part2.cvs"));
+            Scanner myScanner2 = new Scanner(new File("DataGeneration9_16_25Part2.csv"));
             while(myScanner2.hasNextLine()){
                 dataset2.add(getRecordFromLine(myScanner2.nextLine()));
             }
 
-            Scanner myScanner3 = new Scanner(new File("DataGeneration9_16_25Part3.cvs"));
+            Scanner myScanner3 = new Scanner(new File("DataGeneration9_16_25Part3.csv"));
             while(myScanner3.hasNextLine()){
                 dataset3.add(getRecordFromLine(myScanner3.nextLine()));
             }
