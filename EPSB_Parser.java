@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/20/2025 10:23 PM
+// Last updated: 10/21/2025 12:12 NOON
 
 import java.util.*;
 import java.util.regex.*;
@@ -19,7 +19,7 @@ class EPSB_Parser{
             dataset3 = new ArrayList<>();
         try{
             Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
-            System.out.print("Reading in file: \"Synthetic300000PwPairsV2.csv\"... ");
+            System.out.print("Reading in file: \"Synthetic300000PwPairsV2.csv\"...   ");
             while(myScanner0.hasNextLine()){
                 dataset0.add(getRecordFromLine(myScanner0.nextLine()));
             }
@@ -29,7 +29,7 @@ class EPSB_Parser{
         }
         try{
             Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part1.csv"));
-            System.out.println("Reading in file: \"DataGeneration9_16_25Part1.csv\"... ");
+            System.out.print("Reading in file: \"DataGeneration9_16_25Part1.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset1.add(getRecordFromLine(myScanner0.nextLine()));
             }
@@ -39,7 +39,7 @@ class EPSB_Parser{
         }
         try{
             Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part2.csv"));
-            System.out.println("Reading in file: \"DataGeneration9_16_25Part2.csv\"... ");
+            System.out.print("Reading in file: \"DataGeneration9_16_25Part2.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset2.add(getRecordFromLine(myScanner0.nextLine()));
             }
@@ -49,7 +49,7 @@ class EPSB_Parser{
         }
         try{
             Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part3.csv"));
-            System.out.println("Reading in file: \"DataGeneration9_16_25Part3.csv\"... ");
+            System.out.print("Reading in file: \"DataGeneration9_16_25Part3.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset3.add(getRecordFromLine(myScanner0.nextLine()));
             }
@@ -70,21 +70,75 @@ class EPSB_Parser{
             }
         }
 
+        ArrayList<EPSB> EPSBArrayList1 = new ArrayList<>();
+        for(int index = 0; index < 20; index++){
+            EPSBArrayList1.add(new EPSB());
+        }
+        for(int index = 0; index < EPSBArrayList1.size(); index++){
+            for(String currentPassword : dataset1.get(index)){
+                EPSBArrayList1.get(index).addNewPassword(currentPassword);
+            }
+        }
+
+        ArrayList<EPSB> EPSBArrayList2 = new ArrayList<>();
+        for(int index = 0; index < 20; index++){
+            EPSBArrayList2.add(new EPSB());
+        }
+        for(int index = 0; index < EPSBArrayList2.size(); index++){
+            for(String currentPassword : dataset2.get(index)){
+                EPSBArrayList2.get(index).addNewPassword(currentPassword);
+            }
+        }
+
+        ArrayList<EPSB> EPSBArrayList3 = new ArrayList<>();
+        for(int index = 0; index < 20; index++){
+            EPSBArrayList3.add(new EPSB());
+        }
+        for(int index = 0; index < EPSBArrayList3.size(); index++){
+            for(String currentPassword : dataset3.get(index)){
+                EPSBArrayList3.get(index).addNewPassword(currentPassword);
+            }
+        }
+
         while(true){
+            System.out.println("=========================================================================");
+            System.out.println("What file do you wish to analyse?");
+            System.out.println("1. Synthetic300000PwPairsV2.csv");
+            System.out.println("2. DataGeneration9_16_25Part1.csv");
+            System.out.println("3. DataGeneration9_16_25Part2.csv");
+            System.out.println("4. DataGeneration9_16_25Part3.csv");
+
             Scanner myScanner = new Scanner(System.in);
+            int userChosenDataset = myScanner.nextInt();
             System.out.println("Which user do you wish to analyse?");
             int userNumber = myScanner.nextInt();
             userNumber--;
-            getPasswordsStats(EPSBArrayList0.get(userNumber));
 
-            System.out.println();
-            System.out.println("Press any key to continue.");
+            switch(userChosenDataset){
+                case 1:
+                    getPasswordsStats(EPSBArrayList0.get(userNumber));
+                    System.out.println("Press any key to continue.");
+                    break;
+                case 2:
+                    getPasswordsStats(EPSBArrayList0.get(userNumber));
+                    System.out.println("Press any key to continue.");
+                    break;
+                case 3:
+                    getPasswordsStats(EPSBArrayList0.get(userNumber));
+                    System.out.println("Press any key to continue.");
+                    break;
+                case 4:
+                    getPasswordsStats(EPSBArrayList0.get(userNumber));
+                    System.out.println("Press any key to continue.");
+                    break;
+                default:
+                    System.out.println("Please select a valid dataset.");
+            }
             String waitingForUser = myScanner.nextLine();
             String waitingForUser1 = myScanner.nextLine();
             System.out.println("\033[H\033[2J");
-            System.out.flush();
+            // System.out.flush();
         }
-
     }
 
     private static ArrayList<String> getRecordFromLine(String line){
