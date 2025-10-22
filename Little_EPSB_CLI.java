@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/20/2025 10:20 PM
+// Last updated: 10/21/2025 11:09 PM
 
 // CONCEPT
 // Step 1: Prompt the user for a password.
@@ -21,7 +21,7 @@ import java.util.regex.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EPSB_CLI{
+public class Little_EPSB_CLI{
     public static void main (String[] args){
         Scanner ob = new Scanner(System.in);
         String currentPassword;
