@@ -19,41 +19,41 @@ class EPSB_Parser{
             dataset3 = new ArrayList<>();
         try{
             Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
-            System.out.println("Reading in file: Synthetic300000PwPairsV2.csv ...");
+            System.out.print("Reading in file: \"Synthetic300000PwPairsV2.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset0.add(getRecordFromLine(myScanner0.nextLine()));
             }
-            System.out.println("✓ File read complete!");
+            System.out.println("File read complete ✓");
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }
         try{
             Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part1.csv"));
-            System.out.println("Reading in file: DataGeneration9_16_25Part1.csv ...");
+            System.out.println("Reading in file: \"DataGeneration9_16_25Part1.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset1.add(getRecordFromLine(myScanner0.nextLine()));
             }
-            System.out.println("✓ File read complete!");
+            System.out.println("File read complete ✓");
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }
         try{
             Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part2.csv"));
-            System.out.println("Reading in file: DataGeneration9_16_25Part2.csv ...");
+            System.out.println("Reading in file: \"DataGeneration9_16_25Part2.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset2.add(getRecordFromLine(myScanner0.nextLine()));
             }
-            System.out.println("✓ File read complete!");
+            System.out.println("File read complete ✓");
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }
         try{
             Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part3.csv"));
-            System.out.println("Reading in file: DataGeneration9_16_25Part3.csv ...");
+            System.out.println("Reading in file: \"DataGeneration9_16_25Part3.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset3.add(getRecordFromLine(myScanner0.nextLine()));
             }
-            System.out.println("✓ File read complete!");
+            System.out.println("File read complete ✓");
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }
