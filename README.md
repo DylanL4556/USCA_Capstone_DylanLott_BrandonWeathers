@@ -7,46 +7,19 @@ Modern technology allows the protection of sensitive information.​ Naturally, 
 <br>
 <br>
 **Our Research Goal:**
+<br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 ## How to Run
-### EPSB Algorithm 
 1. Fork this repo
-2. Compile all files ("javac *.java")
-3. Run either "java EPSB_CLI" or "java EPSB_GUI"
-
-### Query CSV
-This allowed the user to query the stats about any user from the Synthetic300000PwPairsV2 dataset.
-1. Fork this repo
-2. Compile all files ("javac *.java")
-3. Run "java EPSB_Parser"
-4. When prompted, input the user's index which with to analyse.
-5. After you are finished viewing desired into, press any key to continue.
-6. If you want to continue querying, enter your next desired user's index or pres ctrl+c to stop the program.
+2. cd /USCA_Capstone_DylanLott_BrandonWeathers 
+3. Compile all files ("javac *.java")
+4. Run "java EPSB_Parser"
+5. When prompted, input the database which you wish to analyse.
+6. When prompted, input the user number you wish to analyse.
+7. After you are finished viewing desired info, press any key to continue.
+8. If you want to continue querying, return to step 5.
 
 ## Contacts
-<table>
-    <tr>
-        <td>
-            Yilian Zhang
-        </td>
-        <td>
-            YilianZ@usca.edu
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Dylan Lott
-        </td>
-        <td>
-            drlott@usca.edu
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Brandon Weathers
-        </td>
-        <td>
-            brw12@usca.edu
-        </td>
-    </tr>
-</table>
+| Yilian Zhang     | YilianZ@usca.edu |
+| Dylan Lott       | drlott@usca.edu  |
+| Brandon Weathers | brw12@usca.edu   |
