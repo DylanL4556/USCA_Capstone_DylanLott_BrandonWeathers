@@ -61,7 +61,7 @@ class EPSB_Parser{
         // Adding all lines of the CSV to a coresponding EPSB, which then
         // does stastical analysis.
         ArrayList<EPSB> EPSBArrayList0 = new ArrayList<>();
-        for(int index = 0; index < 20; index++){
+        for(int index = 0; index < dataset0.size(); index++){
             EPSBArrayList0.add(new EPSB());
         }
         for(int index = 0; index < EPSBArrayList0.size(); index++){
@@ -71,7 +71,7 @@ class EPSB_Parser{
         }
 
         ArrayList<EPSB> EPSBArrayList1 = new ArrayList<>();
-        for(int index = 0; index < 20; index++){
+        for(int index = 0; index < dataset1.size(); index++){
             EPSBArrayList1.add(new EPSB());
         }
         for(int index = 0; index < EPSBArrayList1.size(); index++){
@@ -81,7 +81,7 @@ class EPSB_Parser{
         }
 
         ArrayList<EPSB> EPSBArrayList2 = new ArrayList<>();
-        for(int index = 0; index < 20; index++){
+        for(int index = 0; index < dataset2.size(); index++){
             EPSBArrayList2.add(new EPSB());
         }
         for(int index = 0; index < EPSBArrayList2.size(); index++){
@@ -91,7 +91,7 @@ class EPSB_Parser{
         }
 
         ArrayList<EPSB> EPSBArrayList3 = new ArrayList<>();
-        for(int index = 0; index < 20; index++){
+        for(int index = 0; index < dataset3.size(); index++){
             EPSBArrayList3.add(new EPSB());
         }
         for(int index = 0; index < EPSBArrayList3.size(); index++){
@@ -120,15 +120,15 @@ class EPSB_Parser{
                     System.out.println("Press any key to continue.");
                     break;
                 case 2:
-                    getPasswordsStats(EPSBArrayList0.get(userNumber));
+                    getPasswordsStats(EPSBArrayList1.get(userNumber));
                     System.out.println("Press any key to continue.");
                     break;
                 case 3:
-                    getPasswordsStats(EPSBArrayList0.get(userNumber));
+                    getPasswordsStats(EPSBArrayList2.get(userNumber));
                     System.out.println("Press any key to continue.");
                     break;
                 case 4:
-                    getPasswordsStats(EPSBArrayList0.get(userNumber));
+                    getPasswordsStats(EPSBArrayList3.get(userNumber));
                     System.out.println("Press any key to continue.");
                     break;
                 default:
