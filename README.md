@@ -20,6 +20,8 @@ Develop an algorithm to detect malicious users using various metrics including t
 8. If you want to continue querying, return to step 5.
 
 ## Contacts
+| Contributer      | Email            | 
+|------------------|------------------|
 | Yilian Zhang     | YilianZ@usca.edu |
 | Dylan Lott       | drlott@usca.edu  |
 | Brandon Weathers | brw12@usca.edu   |
