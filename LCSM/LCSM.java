@@ -13,16 +13,21 @@
  *      4) P is a subsequence of Z.
  *
  * Now, I've tried to change the algorithm so that X and P are removed, but I don't know how to.
- * however, here is what I do know.
+ * However, here is what I do know.
  * All strings are a subsequences of themselves!
  * Therefore, if you just set X set to Y_1 and P set to "", it makes it as if they are nonexistent (I think).
  *
  * So, rather than changing the algorithm I will just always run it with X set to Y_1 and P set to "".
  * Yes, I know that it is less efficient.
- * Yes, I know we have "over 3,000,000 user entries".
+ * Yes, I know we have over 3,000,000 user entries.
  * I don't care.
- * If you can debloat the algorithm, do so your self.
+ * If you can debloat the algorithm, do so yourself.
  * k bye
+ *
+ * =========================================================================================================
+ *
+ * Actualy, this isn't qute true, it only accounts for instaaances for substrings at the beginngin of words.
+ * I will have to find a way to update my algoritm.
  */
 
 /*

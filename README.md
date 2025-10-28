@@ -19,6 +19,18 @@ Develop an algorithm to detect malicious users using various metrics including t
 7. After you are finished viewing desired info, press any key to continue.
 8. If you want to continue querying, return to step 5.
 
+## Runing Longest Common Substring
+This feature is still in development and doens't work properly. 
+The testing instructions are as follows.
+1. Fork this repo
+2. cd /USCA_Capstone_DylanLott_BrandonWeathers/LCSM
+3. Compile all files ("javac *.java")
+4. Run "java LCSM"
+5. Provide your first string.
+6. Provide the same string *again*.
+7. Provide your next string.
+8. Press Enter to submit an empty string as P.
+
 ## Contacts
 | Contributer      | Email            | 
 |------------------|------------------|
