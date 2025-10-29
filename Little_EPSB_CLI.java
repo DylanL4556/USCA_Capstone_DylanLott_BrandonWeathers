@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/21/2025 11:09 PM
+// Last updated: 10/28/2025 11:37 PM
 
 // CONCEPT
 // Step 1: Prompt the user for a password.
