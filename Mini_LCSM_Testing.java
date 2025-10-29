@@ -22,9 +22,9 @@ class Mini_LCSM_Testing{
 
         final int m = X.length(), n_1 = Y_1.length(), n_2 = Y_2.length(), r = P.length();
         int[][][][] M = new int[m + 1][n_1 + 1][n_2 + 1][r + 1];
-        System.out.println("The first password is:   " + Y_1);
-        System.out.println("The second password is:  " + Y_2);
-        System.out.println("The common substring is: " + CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M));
+        // System.out.println("The first password is:   " + Y_1);
+        // System.out.println("The second password is:  " + Y_2);
+        // System.out.println("The common substring is: " + CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M));
     }
 
     static String  CLCSSM(String X, String Y_1, String Y_2, String P, int m, int n_1, int n_2, int r, int[][][][] M){
