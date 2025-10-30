@@ -22,7 +22,7 @@ Develop an algorithm to detect malicious users using various metrics including t
 ## Runing Longest Common Substring
 This feature is still in development and doens't work properly. 
 The testing instructions are as follows.
-1. Fork this repo
+1. Fork this repo.
 2. cd /USCA_Capstone_DylanLott_BrandonWeathers/LCSM
 3. Compile all files ("javac *.java")
 4. Run "java LCSM"
@@ -30,6 +30,17 @@ The testing instructions are as follows.
 6. Provide the same string *again*.
 7. Provide your next string.
 8. Press Enter to submit an empty string as P.
+
+## How to Test the Algirhtm's Speed on Different Machine 
+I relised that on some machines the different algorithms dont' scale quite right.
+The following instructions use the the time command.
+This is a command which is on nearly all Linux systems.
+I'm not sure for a Windows equivalent.
+1.  Fork this repo.
+2. cd /USCA_Capstone_DylanLott_BrandonWeathers/LCSM
+3. Compile all files ("javac *.java")
+4. Run: time Little_EPSB_CLI_Testing java ; time java Mini_LCSM_Testing; 
+5. The first set of measurements that appears is the EPSB algorithm, the second set of measurements is the new LCSM algorithm. All the measurements are is seconds.
 
 ## Contacts
 | Contributer      | Email            | 

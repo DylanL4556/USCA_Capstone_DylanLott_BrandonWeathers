@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/28/2025 11:37 PM
+// Last updated: 10/30/2025 12:17 AM
 
 // This file is only for testing the speed of the LCSM algorithm.
 // On average this version of my LCSM takes 0.313 seconds.
