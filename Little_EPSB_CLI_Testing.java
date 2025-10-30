@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/29/2025 10:58 AM
+// Last updated: 10/30/2025 12:16 AM
 
 // Just for testing
 
@@ -15,8 +15,8 @@ public class Little_EPSB_CLI_Testing{
         currentPassword = "ancplucaskai99";
         EPSB EPSB1 = new EPSB();
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+        // System.out.println("\033[H\033[2J");
+        // System.out.flush();
 
         EPSB1.addNewPassword(currentPassword);
 
