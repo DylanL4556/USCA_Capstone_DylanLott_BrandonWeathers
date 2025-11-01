@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/25/2025 1:03 AM
+// Last updated: 11/1/2025 5:44 PM
 
 /*
  * Alright...
@@ -72,8 +72,8 @@ class Mini_LCSM{
         Scanner ob = new Scanner(System.in);
 
         try{
-            Scanner myScanner0 = new Scanner(new File("Synthetic30000PwPairsV2.csv"));
-            System.out.print("Reading in file: \"Synthetic30000PwPairsV2.csv\"...   ");
+            Scanner myScanner0 = new Scanner(new File("../Datasets/Synthetic300000PwPairsV2.csv"));
+            System.out.print("Reading in file: Synthetic30000PwPairsV2.csv ...   ");
             while(myScanner0.hasNextLine()){
                 synthetic30k.add(getRecordFromLine(myScanner0.nextLine()));
             }
@@ -86,13 +86,12 @@ class Mini_LCSM{
         String Y_2 = synthetic30k.get(11).get(1);
         String X = Y_1 + Y_2;
         String P  = "";
-        // System.out.println(X);
 
         final int m = X.length(), n_1 = Y_1.length(), n_2 = Y_2.length(), r = P.length();
         int[][][][] M = new int[m + 1][n_1 + 1][n_2 + 1][r + 1];
-        System.out.println("The first password is:   " + Y_1);
-        System.out.println("The second password is:  " + Y_2);
-        System.out.println("The common substring is: " + CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M));
+        System.out.println("The 1st password of the 12th entry is:   " + Y_1);
+        System.out.println("The 2nd password of the 12th entry is:  " + Y_2);
+        System.out.println("The common substring of the 12th entry is: " + CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M));
     }
 
     static String  CLCSSM(String X, String Y_1, String Y_2, String P, int m, int n_1, int n_2, int r, int[][][][] M){

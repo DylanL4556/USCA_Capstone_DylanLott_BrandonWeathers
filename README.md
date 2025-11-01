@@ -10,38 +10,31 @@ Modern technology allows the protection of sensitive information.​ Naturally, 
 <br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 ## How to Run
-1. Fork this repo.
+1. git fork https://github.com/BrandonWeathers000/USCA_Capstone_DylanLott_BrandonWeathers.git
 2. cd /USCA_Capstone_DylanLott_BrandonWeathers 
-3. Run: "javac *.java"
-4. Run: "java EPSB_Parser"
+3. javac *.java
+4. java EPSB_Parser
 5. When prompted, input the database which you wish to analyse.
 6. When prompted, input the user number you wish to analyse.
 7. After you are finished viewing desired info, press any key to continue.
 8. If you want to continue querying, return to step 5.
 
 ## Runing Longest Common Substring
-*This documentation may be out of date.*
-This feature is still in development and doens't work properly. 
+This program takes the first two entries from database Synthetic30000PwPairsV2.csv and compares them.
 The testing instructions are as follows.
-1. Fork this repo.
+1. git fork https://github.com/BrandonWeathers000/USCA_Capstone_DylanLott_BrandonWeathers.git
 2. cd /USCA_Capstone_DylanLott_BrandonWeathers/LCSM
-3. Run: "javac *.java"
-4. Run: "java LCSM"
-5. Provide your first string.
-6. Provide the same string *again*.
-7. Provide your next string.
-8. Press Enter to submit an empty string as P.
+3. javac *.java
+4. java LCSM
 
 ## How to Test the Algirhtm's Speed on Different Machines
 I relised that on some machines the different algorithms dont' scale quite right.
-The following instructions use the the time command.
-This is a command which is on nearly all Linux systems.
-I'm not sure of the Windows equivalent.
-1. Fork this repo.
-2. cd /USCA_Capstone_DylanLott_BrandonWeathers/LCSM
-3. Compile all files ("javac *.java")
-4. Run: time Little_EPSB_CLI_Testing java ; time java Mini_LCSM_Testing; 
-5. The first set of measurements that appears is the EPSB algorithm, the second set of measurements is the new LCSM algorithm. All the measurements are is seconds.
+The following instructions only work on Linux and MacOS (actualy I'm not sure about MacOS).
+- Windows users can manualy run each file which has Testing at the end of its name.
+- They are located in their respective directories.
+1. git fork https://github.com/BrandonWeathers000/USCA_Capstone_DylanLott_BrandonWeathers.git
+2. cd /USCA_Capstone_DylanLott_BrandonWeathers/
+3. ./TestingScript.sh
 
 ## Contacts
 | Contributer      | Email            | 

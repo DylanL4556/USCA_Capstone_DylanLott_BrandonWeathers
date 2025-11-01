@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/30/2025 12:17 AM
+// Last updated: 11/1/2025 5:01 PM
 
 // This file is only for testing the speed of the LCSM algorithm.
 // On average this version of my LCSM takes 0.313 seconds.
@@ -7,6 +7,10 @@
 // 30,000 entires * 0.313 = 9,290 seconds = more than 2.5 hours!
 // Brother, the EPSB tales 0.237 second! (A little under 2 hours.)
 // We are cooked
+
+// Alright, upon further consideration, we may be actualy.
+// For some reason running it on a different computer makes the LCSM take less time then the EPSB.
+// We will just use my most powerful Vero computer to run it.
 
 import java.util.*;
 import java.io.*;
@@ -24,7 +28,12 @@ class Mini_LCSM_Testing{
         int[][][][] M = new int[m + 1][n_1 + 1][n_2 + 1][r + 1];
         // System.out.println("The first password is:   " + Y_1);
         // System.out.println("The second password is:  " + Y_2);
-        // System.out.println("The common substring is: " + CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M));
+        long startTime = System.nanoTime();
+        for(int index = 0; index < 100; index++){
+            String finialAnswer = CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M);
+        }
+        long endTime = System.nanoTime();
+        System.out.println("The LCMS algorithm takes " + (endTime-startTime)/1000000 + " milisecond(s) for 2 entrie(s) 100 times.");
     }
 
     static String  CLCSSM(String X, String Y_1, String Y_2, String P, int m, int n_1, int n_2, int r, int[][][][] M){
