@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 11/1/2025  4:03 AM
+// Last updated: 11/1/2025  4:03 PM
 
 // I have created a class that handles the technical parsing and calculation.
 // I made this disccision so that I can use a single object in both a CLI and GUI versions.
@@ -39,8 +39,8 @@ class EPSB{
         lowerCase.sort(null);
         letters.sort(null);
         numbers.sort(null);
-        length.sort(null);
         symbols.sort(null);
+        length.sort(null);
     }
 
     int countCapitalsInWord(String currentPassword){
@@ -92,6 +92,9 @@ class EPSB{
     }
 
     void getInfo(){
+        System.out.println("The current passwords are: ");
+        this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
+        System.out.println();
         System.out.println("CAPITALS:");
         System.out.println("     Minimum number of capitals are: " +                this.capitals.get(  0));
         System.out.println("     Max number of capitals are: " +                    this.capitals.get(  this.capitals.size()-1));
@@ -133,5 +136,43 @@ class EPSB{
         System.out.printf ("     Average length is: %.2f\n",                        this.getAverage(     this.length));
         System.out.println("     Median length is: " +                              this.getMedian(      this.length));
         System.out.println("     Mode length is: " +                                this.getMode(        this.length));
+    }
+
+    void getInfoTesting(){
+        this.capitals.get(  0);
+        this.capitals.get(  this.capitals.size()-1);
+        this.getAverage(    this.capitals);
+        this.getMedian(     this.capitals);
+        this.getMode(       this.capitals);
+
+        this.lowerCase.get( 0);
+        this.lowerCase.get( this.lowerCase.size()-1);
+        this.getAverage(    this.lowerCase);
+        this.getMedian(     this.lowerCase);
+        this.getMode(       this.lowerCase);
+
+        this.letters.get(   0);
+        this.letters.get(   this.letters.size()-1);
+        this.getAverage(    this.letters);
+        this.getMedian(     this.letters);
+        this.getMode(       this.letters);
+
+        this.numbers.get(   0);
+        this.numbers.get(   this.numbers.size()-1);
+        this.getAverage(    this.numbers);
+        this.getMedian(     this.numbers);
+        this.getMode(       this.numbers);
+
+        this.symbols.get(   0);
+        this.symbols.get(   this.symbols.size()-1);
+        this.getAverage(    this.symbols);
+        this.getMedian(     this.symbols);
+        this.getMode(       this.symbols);
+
+        this.length.get(    0);
+        this.length.get(    this.length.size()-1);
+        this.getAverage(    this.length);
+        this.getMedian(     this.length);
+        this.getMode(       this.length);
     }
 }

@@ -1,12 +1,11 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/22/2025 12:12 3:42PM
+// Last updated: 11/1/2025  5:55 PM
 
 import java.util.*;
+import java.io.*;
 import java.util.regex.*;
 import java.util.HashMap;
 import java.util.Map;
-//import java.util.*;
-import java.io.*;
 
 class EPSB_Parser{
     public static final String COMMA_DELIMITER = ",";
@@ -18,7 +17,7 @@ class EPSB_Parser{
             dataset2 = new ArrayList<>(),
             dataset3 = new ArrayList<>();
         try{
-            Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
+            Scanner myScanner0 = new Scanner(new File("../Datasets/Synthetic300000PwPairsV2.csv"));
             System.out.print("Reading in file: \"Synthetic300000PwPairsV2.csv\"...   ");
             while(myScanner0.hasNextLine()){
                 dataset0.add(getRecordFromLine(myScanner0.nextLine()));
@@ -28,7 +27,7 @@ class EPSB_Parser{
             System.out.println("File not found.");
         }
         try{
-            Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part1.csv"));
+            Scanner myScanner0 = new Scanner(new File("../Datasets/DataGeneration9_16_25Part1.csv"));
             System.out.print("Reading in file: \"DataGeneration9_16_25Part1.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset1.add(getRecordFromLine(myScanner0.nextLine()));
@@ -38,7 +37,7 @@ class EPSB_Parser{
             System.out.println("File not found.");
         }
         try{
-            Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part2.csv"));
+            Scanner myScanner0 = new Scanner(new File("../Datasets/DataGeneration9_16_25Part2.csv"));
             System.out.print("Reading in file: \"DataGeneration9_16_25Part2.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset2.add(getRecordFromLine(myScanner0.nextLine()));
@@ -48,7 +47,7 @@ class EPSB_Parser{
             System.out.println("File not found.");
         }
         try{
-            Scanner myScanner0 = new Scanner(new File("DataGeneration9_16_25Part3.csv"));
+            Scanner myScanner0 = new Scanner(new File("../Datasets/DataGeneration9_16_25Part3.csv"));
             System.out.print("Reading in file: \"DataGeneration9_16_25Part3.csv\"... ");
             while(myScanner0.hasNextLine()){
                 dataset3.add(getRecordFromLine(myScanner0.nextLine()));
@@ -116,24 +115,21 @@ class EPSB_Parser{
 
             switch(userChosenDataset){
                 case 1:
-                    getPasswordsStats(EPSBArrayList0.get(userNumber));
-                    System.out.println("Press any key to continue.");
+                    EPSBArrayList0.get(userNumber).getInfo();
                     break;
                 case 2:
-                    getPasswordsStats(EPSBArrayList1.get(userNumber));
-                    System.out.println("Press any key to continue.");
+                    EPSBArrayList1.get(userNumber).getInfo();
                     break;
                 case 3:
-                    getPasswordsStats(EPSBArrayList2.get(userNumber));
-                    System.out.println("Press any key to continue.");
+                    EPSBArrayList2.get(userNumber).getInfo();
                     break;
                 case 4:
-                    getPasswordsStats(EPSBArrayList3.get(userNumber));
-                    System.out.println("Press any key to continue.");
+                    EPSBArrayList3.get(userNumber).getInfo();
                     break;
                 default:
                     System.out.println("Please select a valid dataset.");
             }
+            System.out.println("Press any key to continue.");
             String waitingForUser = myScanner.nextLine();
             String waitingForUser1 = myScanner.nextLine();
             System.out.println("\033[H\033[2J");
@@ -150,13 +146,5 @@ class EPSB_Parser{
             }
         }
         return currentLine;
-    }
-
-    private static void getPasswordsStats(EPSB EPSBInput){
-        System.out.print("The user's passwords are: ");
-        EPSBInput.passwords.forEach((password) -> System.out.print(password + " "));
-
-        System.out.println();
-        System.out.println();
     }
 }
