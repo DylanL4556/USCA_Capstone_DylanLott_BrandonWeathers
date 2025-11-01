@@ -178,41 +178,41 @@ public class EPSB_GUI extends JPanel{
                 System.out.println(currentPassword);
                 EPSB1.addNewPassword(currentPassword);
 
-                capitalsMin   .setText(EPSB1.getMin(     EPSB1.capitals) + "");
-                capitalsMax   .setText(EPSB1.getMax(     EPSB1.capitals) + "");
-                capitalsMean  .setText(EPSB1.getAverage( EPSB1.capitals) + "");
-                capitalsMedian.setText(EPSB1.getMedian(  EPSB1.capitals) + "");
-                capitalsMode  .setText(EPSB1.getMode(    EPSB1.capitals) + "");
+                // capitalsMin   .setText(EPSB1.getMin(     EPSB1.capitals) + "");
+                // capitalsMax   .setText(EPSB1.getMax(     EPSB1.capitals) + "");
+                // capitalsMean  .setText(EPSB1.getAverage( EPSB1.capitals) + "");
+                // capitalsMedian.setText(EPSB1.getMedian(  EPSB1.capitals) + "");
+                // capitalsMode  .setText(EPSB1.getMode(    EPSB1.capitals) + "");
 
-                lowerCaseMin   .setText(EPSB1.getMin(     EPSB1.lowerCase) + "");
-                lowerCaseMax   .setText(EPSB1.getMax(     EPSB1.lowerCase) + "");
-                lowerCaseMean  .setText(EPSB1.getAverage( EPSB1.lowerCase) + "");
-                lowerCaseMedian.setText(EPSB1.getMedian(  EPSB1.lowerCase) + "");
-                lowerCaseMode  .setText(EPSB1.getMode(    EPSB1.lowerCase) + "");
+                // lowerCaseMin   .setText(EPSB1.getMin(     EPSB1.lowerCase) + "");
+                // lowerCaseMax   .setText(EPSB1.getMax(     EPSB1.lowerCase) + "");
+                // lowerCaseMean  .setText(EPSB1.getAverage( EPSB1.lowerCase) + "");
+                // lowerCaseMedian.setText(EPSB1.getMedian(  EPSB1.lowerCase) + "");
+                // lowerCaseMode  .setText(EPSB1.getMode(    EPSB1.lowerCase) + "");
 
-                lettersMin   .setText(EPSB1.getMin(     EPSB1.letters) + "");
-                lettersMax   .setText(EPSB1.getMax(     EPSB1.letters) + "");
-                lettersMean  .setText(EPSB1.getAverage( EPSB1.letters) + "");
-                lettersMedian.setText(EPSB1.getMedian(  EPSB1.letters) + "");
-                lettersMode  .setText(EPSB1.getMode(    EPSB1.letters) + "");
+                // lettersMin   .setText(EPSB1.getMin(     EPSB1.letters) + "");
+                // lettersMax   .setText(EPSB1.getMax(     EPSB1.letters) + "");
+                // lettersMean  .setText(EPSB1.getAverage( EPSB1.letters) + "");
+                // lettersMedian.setText(EPSB1.getMedian(  EPSB1.letters) + "");
+                // lettersMode  .setText(EPSB1.getMode(    EPSB1.letters) + "");
 
-                numbersMin   .setText(EPSB1.getMin(     EPSB1.numbers) + "");
-                numbersMax   .setText(EPSB1.getMax(     EPSB1.numbers) + "");
-                numbersMean  .setText(EPSB1.getAverage( EPSB1.numbers) + "");
-                numbersMedian.setText(EPSB1.getMedian(  EPSB1.numbers) + "");
-                numbersMode  .setText(EPSB1.getMode(    EPSB1.numbers) + "");
+                // numbersMin   .setText(EPSB1.getMin(     EPSB1.numbers) + "");
+                // numbersMax   .setText(EPSB1.getMax(     EPSB1.numbers) + "");
+                // numbersMean  .setText(EPSB1.getAverage( EPSB1.numbers) + "");
+                // numbersMedian.setText(EPSB1.getMedian(  EPSB1.numbers) + "");
+                // numbersMode  .setText(EPSB1.getMode(    EPSB1.numbers) + "");
 
-                specialCharsMin   .setText(EPSB1.getMin(     EPSB1.symbols) + "");
-                specialCharsMax   .setText(EPSB1.getMax(     EPSB1.symbols) + "");
-                specialCharsMean  .setText(EPSB1.getAverage( EPSB1.symbols) + "");
-                specialCharsMedian.setText(EPSB1.getMedian(  EPSB1.symbols) + "");
-                specialCharsMode  .setText(EPSB1.getMode(    EPSB1.symbols) + "");
+                // specialCharsMin   .setText(EPSB1.getMin(     EPSB1.symbols) + "");
+                // specialCharsMax   .setText(EPSB1.getMax(     EPSB1.symbols) + "");
+                // specialCharsMean  .setText(EPSB1.getAverage( EPSB1.symbols) + "");
+                // specialCharsMedian.setText(EPSB1.getMedian(  EPSB1.symbols) + "");
+                // specialCharsMode  .setText(EPSB1.getMode(    EPSB1.symbols) + "");
 
-                lengthMin   .setText(EPSB1.getMin(     EPSB1.length) + "");
-                lengthMax   .setText(EPSB1.getMax(     EPSB1.length) + "");
-                lengthMean  .setText(EPSB1.getAverage( EPSB1.length) + "");
-                lengthMedian.setText(EPSB1.getMedian(  EPSB1.length) + "");
-                lengthMode  .setText(EPSB1.getMode(    EPSB1.length) + "");
+                // lengthMin   .setText(EPSB1.getMin(     EPSB1.length) + "");
+                // lengthMax   .setText(EPSB1.getMax(     EPSB1.length) + "");
+                // lengthMean  .setText(EPSB1.getAverage( EPSB1.length) + "");
+                // lengthMedian.setText(EPSB1.getMedian(  EPSB1.length) + "");
+                // lengthMode  .setText(EPSB1.getMode(    EPSB1.length) + "");
         }
     }
 
