@@ -1,14 +1,15 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 10/20/2025 10:13 PM
+// Last updated: 11/1/2025  4:03 AM
 
 // I have created a class that handles the technical parsing and calculation.
 // I made this disccision so that I can use a single object in both a CLI and GUI versions.
 
 // I have changed this class so that it also keeps tracks of all letters and the
-// length of the new passwords as per the paper instructs.
+// length of the new passwords as per the paper instructs.S
+
+// I have squeezed out some more preformance by saving time by not recalculating digit count or min or max values.
 import java.util.*;
 import java.util.regex.*;
-import java.util.HashMap;
 import java.util.Map;
 
 class EPSB{
@@ -29,10 +30,17 @@ class EPSB{
         passwords .add(newPassword);
         capitals  .add((Integer) countCapitalsInWord(newPassword));
         lowerCase .add((Integer) countLowerCaseInWord(newPassword));
-        letters   .add((Integer) countCapitalsInWord(newPassword) + countLowerCaseInWord(newPassword));
+        letters   .add((Integer) capitals.get(lowerCase.size()-1) + lowerCase.get(lowerCase.size()-1));
         numbers   .add((Integer) countDigits(newPassword));
-        symbols   .add((Integer) countSpecialCharacters(newPassword));
         length    .add((Integer) newPassword.length());
+        symbols   .add((Integer) length.get(length.size()-1) - (letters.get(letters.size()-1) + numbers.get(numbers.size()-1)));
+
+        capitals.sort(null);
+        lowerCase.sort(null);
+        letters.sort(null);
+        numbers.sort(null);
+        length.sort(null);
+        symbols.sort(null);
     }
 
     int countCapitalsInWord(String currentPassword){
@@ -56,33 +64,10 @@ class EPSB{
         return totalcountDigits;
     }
 
-    int countSpecialCharacters(String currentPassword){
-        int totalSpecialCharacters= 0;
-        for(int index = 0; index < currentPassword.length(); index++)
-            // if(Pattern.matches("[^A-Za-z0-9]", currentPassword.substring(index, index+1))) totalSpecialCharacters++;
-            // Better regex, I think
-            if(Pattern.matches("[\\p{P}\\p{S}]", currentPassword.substring(index, index+1))) totalSpecialCharacters++;
-        return totalSpecialCharacters;
-    }
-
-    int getMin(ArrayList<Integer> list){
-        int min = list.get(0);
-        for(int index = 0; index < list.size(); index++)
-            if(list.get(index).intValue() < min) min = list.get(index);
-        return min;
-    }
-
-    int getMax(ArrayList<Integer> list){
-        int max = list.get(0);
-        for(int index = 0; index < list.size(); index++)
-            if(list.get(index).intValue() > max) max = list.get(index);
-        return max;
-    }
-
     double getAverage(ArrayList<Integer> list){
         double average = 0;
-        for(int index = 0; index < list.size(); index++)
-            average += list.get(index);
+        for(Integer currentElement : list)
+            average += currentElement.intValue();
         return average/list.size();
     }
 
@@ -104,5 +89,49 @@ class EPSB{
             }
         }
         return mode;
+    }
+
+    void getInfo(){
+        System.out.println("CAPITALS:");
+        System.out.println("     Minimum number of capitals are: " +                this.capitals.get(  0));
+        System.out.println("     Max number of capitals are: " +                    this.capitals.get(  this.capitals.size()-1));
+        System.out.printf ("     Average number of capitals are: %.2f\n",           this.getAverage(    this.capitals));
+        System.out.println("     Median number of capitals are: " +                 this.getMedian(     this.capitals));
+        System.out.println("     Mode number of capitals are: " +                   this.getMode(       this.capitals));
+
+        System.out.println("LOWER CASE:");
+        System.out.println("     Minimum number of lower case letters are: " +      this.lowerCase.get( 0));
+        System.out.println("     Max number of lower case letters are: " +          this.lowerCase.get( this.lowerCase.size()-1));
+        System.out.printf ("     Average number of lower case letters are: %.2f\n", this.getAverage(    this.lowerCase));
+        System.out.println("     Median number of lower case letters are: " +       this.getMedian(     this.lowerCase));
+        System.out.println("     Mode number of lower case letters are: " +         this.getMode(       this.lowerCase));
+
+        System.out.println("LETTERS:");
+        System.out.println("     Minimum number of letters are: " +                 this.letters.get(   0));
+        System.out.println("     Max number of letters are: " +                     this.letters.get(   this.letters.size()-1));
+        System.out.printf ("     Average number of letters are: %.2f\n",            this.getAverage(    this.letters));
+        System.out.println("     Median number of letters are: " +                  this.getMedian(     this.letters));
+        System.out.println("     Mode number of letters are: " +                    this.getMode(       this.letters));
+
+        System.out.println("NUMBERS:");
+        System.out.println("     Minimum number of numbers are: " +                 this.numbers.get(    0));
+        System.out.println("     Max number of numbers are: " +                     this.numbers.get(    this.numbers.size()-1));
+        System.out.printf ("     Average number of numbers are: %.2f\n",            this.getAverage(     this.numbers));
+        System.out.println("     Median number of numbers are: " +                  this.getMedian(      this.numbers));
+        System.out.println("     Mode number of numbers are: " +                    this.getMode(        this.numbers));
+
+        System.out.println("SYMBOLS:");
+        System.out.println("     Minimum number of symbols are: " +                 this.symbols.get(    0));
+        System.out.println("     Max number of symbols are: " +                     this.symbols.get(    this.symbols.size()-1));
+        System.out.printf ("     Average number of symbols are: %.2f\n",            this.getAverage(     this.symbols));
+        System.out.println("     Median number of symbols are: " +                  this.getMedian(      this.symbols));
+        System.out.println("     Mode number of symbols are: " +                    this.getMode(        this.symbols));
+
+        System.out.println("LENGTH:");
+        System.out.println("     Minimum length is: " +                             this.length.get(     0));
+        System.out.println("     Max length is: " +                                 this.length.get(     this.length.size()-1));
+        System.out.printf ("     Average length is: %.2f\n",                        this.getAverage(     this.length));
+        System.out.println("     Median length is: " +                              this.getMedian(      this.length));
+        System.out.println("     Mode length is: " +                                this.getMode(        this.length));
     }
 }
