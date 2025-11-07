@@ -21,3 +21,4 @@ with open(output_file, "w", encoding="utf-8") as f:
             f.write(f"{email}\t{pw}\n")
 
 print(f"Found {len(duplicates)} duplicate emails. Saved to {output_file}")
+git
