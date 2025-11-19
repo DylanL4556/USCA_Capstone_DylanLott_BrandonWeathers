@@ -6,7 +6,7 @@ Students: Dylan Lott & Brandon Weathers
 Modern technology allows the protection of sensitive information.​ Naturally, the presence of value leads to people with malicious intent.​ Currently, the file EPSB contains methods used to calculate the CR for a given set of passwords that all belong to a single user. This is a college project and is not intended for serious use.
 <br>
 <br>
-** 🎯 Our Research Goal:**
+**🎯 Our Research Goal:**
 <br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 ## How to Run
