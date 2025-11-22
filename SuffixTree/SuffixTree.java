@@ -1,5 +1,5 @@
 // Authors: Dylan Lott & Brandon Weathers
-// Date last updated:  11/21/2025 11:58PM
+// Date last updated:  11/22/2025 12:31 AM
 // This class is used to create, modify and access suffix trees.
 
 // According to Ukkonen's algorithm a suffix tree can be constructed in Θ(N) time, where N represents the length of the tree.
@@ -13,9 +13,9 @@
 // This youtube video was also helpful to me
 // https://www.youtube.com/watch?v=aPRqocoBsFQ
 // Here is the plan
-// - [  ] Build an implicet suffix tree O(n^2)
-// - [  ] Implement some "tricks" to make it more efficient
-// - [  ] Document EVERYTHING
+// - [X] Build an implicet suffix tree O(n^2)
+// - [ ] Implement some "tricks" to make it more efficient
+// - [ ] Document EVERYTHING
 
 class SuffixTreeNode {
     SuffixTreeNode[] children;
