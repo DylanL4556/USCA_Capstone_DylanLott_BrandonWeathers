@@ -1,5 +1,5 @@
 // Authors: Dylan Lott & Brandon Weathers
-// Date last updated:  11/22/2025 12:31 AM
+// Date last updated:  11/24/2025 5:09 PM
 // This class is used to create, modify and access suffix trees.
 
 // According to Ukkonen's algorithm a suffix tree can be constructed in Θ(N) time, where N represents the length of the tree.
@@ -17,25 +17,6 @@
 // - [ ] Implement some "tricks" to make it more efficient
 // - [ ] Document EVERYTHING
 
-class SuffixTreeNode {
-    SuffixTreeNode[] children;
-    SuffixTreeNode suffixLink;
-    int start;
-    int[] end;
-    int suffixIndex;
-
-    public SuffixTreeNode()
-    {
-        this.children
-            = new SuffixTreeNode[256]; // Assuming ASCII
-                                       // characters
-        this.suffixLink = null;
-        this.start = 0;
-        this.end = new int[1];
-        this.suffixIndex = -1;
-    }
-}
-
 public class SuffixTree {
     static char[] text;
     static SuffixTreeNode root;
@@ -50,12 +31,26 @@ public class SuffixTree {
     static int[] splitEnd;
     static int size = -1;
 
-    public static SuffixTreeNode newNode(int start,
-                                         int[] end)
-    {
+    class SuffixTreeNode{
+        SuffixTreeNode[] children;
+        SuffixTreeNode suffixLink;
+        int start;
+        int[] end;
+        int suffixIndex;
+
+        public SuffixTreeNode(){
+            this.children = new SuffixTreeNode[256]; // Assuming ASCII characters
+            this.suffixLink = null;
+            this.start = 0;
+            this.end = new int[1];
+            this.suffixIndex = -1;
+        }
+    }
+
+    public static SuffixTreeNode newNode(int start, int[] end){
         count++;
         SuffixTreeNode node = new SuffixTreeNode();
-        for (int i = 0; i < 256; i++) {
+        for(int i = 0; i < 256; i++){
             node.children[i] = null;
         }
         node.suffixLink = root;
@@ -65,17 +60,13 @@ public class SuffixTree {
         return node;
     }
 
-    public static int edgeLength(SuffixTreeNode n)
-    {
+    public static int edgeLength(SuffixTreeNode n){
         return n.end[0] - n.start + 1;
     }
 
-    public static boolean walkDown(SuffixTreeNode currNode)
-    {
-        if (activeLength >= edgeLength(currNode)) {
-            activeEdge
-                = text[size - remainingSuffixCount + 1]
-                  - ' ';
+    public static boolean walkDown(SuffixTreeNode currNode){
+        if(activeLength >= edgeLength(currNode)){
+            activeEdge = text[size - remainingSuffixCount + 1] - ' ';
             activeLength -= edgeLength(currNode);
             activeNode = currNode;
             return true;
@@ -83,38 +74,34 @@ public class SuffixTree {
         return false;
     }
 
-    public static void extendSuffixTree(int pos)
-    {
+    public static void extendSuffixTree(int pos){
         leafEnd = pos;
         remainingSuffixCount++;
         lastNewNode = null;
 
-        while (remainingSuffixCount > 0) {
+        while(remainingSuffixCount > 0){
 
-            if (activeLength == 0) {
+            if (activeLength == 0){
                 activeEdge = text[pos] - ' ';
             }
 
-            if (activeNode.children[activeEdge] == null) {
+            if(activeNode.children[activeEdge] == null){
                 activeNode.children[activeEdge]
                     = newNode(pos, new int[] { leafEnd });
 
-                if (lastNewNode != null) {
+                if (lastNewNode != null){
                     lastNewNode.suffixLink = activeNode;
                     lastNewNode = null;
                 }
             }
-            else {
-                SuffixTreeNode next
-                    = activeNode.children[activeEdge];
-                if (walkDown(next)) {
+            else{
+                SuffixTreeNode next = activeNode.children[activeEdge];
+                if(walkDown(next)){
                     continue;
                 }
 
-                if (text[next.start + activeLength]
-                    == text[pos]) {
-                    if (lastNewNode != null
-                        && activeNode != root) {
+                if(text[next.start + activeLength] == text[pos]){
+                    if(lastNewNode != null && activeNode != root){
                         lastNewNode.suffixLink = activeNode;
                         lastNewNode = null;
                     }
@@ -123,18 +110,15 @@ public class SuffixTree {
                     break;
                 }
 
-                splitEnd = new int[] { next.start
-                                       + activeLength - 1 };
-                SuffixTreeNode split
-                    = newNode(next.start, splitEnd);
+                splitEnd = new int[] { next.start + activeLength - 1 };
+                SuffixTreeNode split = newNode(next.start, splitEnd);
                 activeNode.children[activeEdge] = split;
 
-                split.children[text[pos] - ' ']
-                    = newNode(pos, new int[] { leafEnd });
+                split.children[text[pos] - ' '] = newNode(pos, new int[] { leafEnd });
                 next.start += activeLength;
                 split.children[activeEdge] = next;
 
-                if (lastNewNode != null) {
+                if(lastNewNode != null){
                     lastNewNode.suffixLink = split;
                 }
 
@@ -142,73 +126,59 @@ public class SuffixTree {
             }
 
             remainingSuffixCount--;
-            if (activeNode == root && activeLength > 0) {
+            if(activeNode == root && activeLength > 0){
                 activeLength--;
-                activeEdge
-                    = text[pos - remainingSuffixCount + 1]
-                      - ' ';
+                activeEdge = text[pos - remainingSuffixCount + 1] - ' ';
             }
-            else if (activeNode != root) {
+            else if(activeNode != root){
                 activeNode = activeNode.suffixLink;
             }
         }
     }
 
-    public static void print(int i, int j)
-    {
-        for (int k = i; k <= j; k++) {
+    public static void print(int i, int j){
+        for(int k = i; k <= j; k++){
             System.out.print(text[k]);
         }
     }
 
-    public static void setSuffixIndexByDFS(SuffixTreeNode n,
-                                           int labelHeight)
-    {
-        if (n == null)
-            return;
+    public static void setSuffixIndexByDFS(SuffixTreeNode n, int labelHeight){
+        if (n == null) return;
 
-        if (n.start != -1) {
+        if (n.start != -1){
             print(n.start, n.end[0]);
         }
         int leaf = 1;
-        for (int i = 0; i < 256; i++) {
-            if (n.children[i] != null) {
-                if (leaf == 1 && n.start != -1) {
-                    System.out.println(" [" + n.suffixIndex
-                                       + "]");
+        for(int i = 0; i < 256; i++){
+            if(n.children[i] != null){
+                if(leaf == 1 && n.start != -1){
+                    System.out.println(" [" + n.suffixIndex + "]");
                 }
 
                 leaf = 0;
-                setSuffixIndexByDFS(
-                    n.children[i],
-                    labelHeight
-                        + edgeLength(n.children[i]));
+                setSuffixIndexByDFS(n.children[i], labelHeight + edgeLength(n.children[i]));
             }
         }
-        if (leaf == 1) {
+        if(leaf == 1){
             n.suffixIndex = size - labelHeight;
             System.out.println(" [" + n.suffixIndex + "]");
         }
     }
 
-    public static void
-    freeSuffixTreeByPostOrder(SuffixTreeNode n)
-    {
-        if (n == null)
-            return;
+    public static void freeSuffixTreeByPostOrder(SuffixTreeNode n){
+        if (n == null) return;
 
-        for (int i = 0; i < 256; i++) {
-            if (n.children[i] != null) {
+        for(int i = 0; i < 256; i++){
+            if(n.children[i] != null){
                 freeSuffixTreeByPostOrder(n.children[i]);
             }
         }
-        if (n.suffixIndex == -1) {
+        if(n.suffixIndex == -1){
             n.end = null;
         }
     }
 
-    public static void buildSuffixTree()
-    {
+    public static void buildSuffixTree(){
         size = text.length;
         rootEnd = new int[1];
         rootEnd[0] = -1;
@@ -216,7 +186,7 @@ public class SuffixTree {
         root = newNode(-1, rootEnd);
 
         activeNode = root;
-        for (int i = 0; i < size; i++) {
+        for(int i = 0; i < size; i++){
             extendSuffixTree(i);
         }
         int labelHeight = 0;
@@ -225,11 +195,9 @@ public class SuffixTree {
         freeSuffixTreeByPostOrder(root);
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         text = "abbc".toCharArray();
         buildSuffixTree();
-        System.out.println(
-            "Number of nodes in suffix tree are " + count);
+        System.out.println("Number of nodes in suffix tree are " + count);
     }
 }
