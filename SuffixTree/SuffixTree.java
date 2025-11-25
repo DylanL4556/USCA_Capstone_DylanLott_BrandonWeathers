@@ -14,7 +14,8 @@
 // https://www.youtube.com/watch?v=aPRqocoBsFQ
 // Here is the plan
 // - [X] Build an implicet suffix tree O(n^2)
-// - [ ] Implement some "tricks" to make it more efficient
+// - [X] Implement some "tricks" to make it more efficient
+// - [ ] Rewrite C implementation in Java (works for multiple strings)
 // - [ ] Document EVERYTHING
 
 class SuffixTreeNode{
