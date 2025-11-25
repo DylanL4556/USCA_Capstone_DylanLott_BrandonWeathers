@@ -1,3 +1,6 @@
+// Authors: Dylan Lott & Brandon Weathers
+// Date last updated:  11/25/2025 6:38 PM
+
 class TranslatedSuffixTreeTesting{
     public static void main(String[] args){
         long startTime = System.nanoTime();

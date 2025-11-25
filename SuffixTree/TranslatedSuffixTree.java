@@ -1,8 +1,13 @@
 // Authors: Dylan Lott & Brandon Weathers
-// Date last updated:  11/23/2025 10:19 PM
+// Date last updated:  11/25/2025 6:38 PM
+
+import java.util.*;
+import java.io.*;
 
 class TranslatedSuffixTree{
-    static final int MAX_CHAR = 256;
+    static double totalEntries = 0.00;
+    static double meanLength = 0.00;
+    static final int MAX_CHAR = 1000;
 
     static class Node{
         Node[] children = new Node[MAX_CHAR];
@@ -189,10 +194,17 @@ class TranslatedSuffixTree{
         doTraversal(root, 0, maxHeight, substringStartIndex);
 
         int k;
-        for(k = 0; k < maxHeight[0]; k++); // System.out.print(text[k + substringStartIndex[0]]);
-        if(k == 0); // System.out.print("No common substring");
-        else; // System.out.print(", of length: " + (maxHeight[0] + 1));
-        // System.out.println();
+        for(k = 0; k < maxHeight[0]; k++) System.out.print(text[k + substringStartIndex[0]]);
+        if(k == 0){
+            System.out.print("No common substring");
+            totalEntries++;
+        }
+        else{
+            System.out.print(", of length: " + (maxHeight[0] + 1));
+            meanLength += (double) (maxHeight[0] + 1);
+            totalEntries++;
+        }
+        System.out.println();
     }
 
     void setInputString(String s){
@@ -202,12 +214,42 @@ class TranslatedSuffixTree{
     }
 
     public static void main(String[] args){
-        TranslatedSuffixTree tree = new TranslatedSuffixTree();
-        tree.size1 = 7;
+        // try{
+        //     Scanner myScanner0 = new Scanner(new File("SyntheticMatched.csv"));
+        //     System.out.println("Reading in file: SyntheticMatched.csv...");
+        //     while(myScanner0.hasNextLine()){
+        //         TranslatedSuffixTree tree = new TranslatedSuffixTree();
 
-        System.out.print("Longest Common Substring in xancplucaskai99 and ancplucaskai997 is: ");
-        tree.setInputString("xancplucaskai99#ancplucaskai997$");
-        tree.buildSuffixTree();
-        tree.getLongestCommonSubstring();
+        //         tree.size1 = 15;
+        //         tree.setInputString(myScanner0.nextLine());
+        //         tree.buildSuffixTree();
+        //         tree.getLongestCommonSubstring();
+        //     }
+        //     System.out.println("File read complete ✓");
+        //     System.out.println("The mean length of the substring is: " + (meanLength / totalEntries));
+
+        // }catch(FileNotFoundException e){
+        //     System.out.println("File not found.");
+        // }
+
+        try{
+            Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
+            System.out.println("Reading in file: Synthetic300000PwPairsV2.csv...");
+            while(myScanner0.hasNextLine()){
+                TranslatedSuffixTree tree = new TranslatedSuffixTree();
+
+                tree.size1 = 15;
+                tree.setInputString(myScanner0.nextLine());
+                // System.out.print(myScanner0.nextLine());
+                tree.buildSuffixTree();
+                tree.getLongestCommonSubstring();
+            }
+            System.out.println("File read complete ✓");
+            System.out.println("The mean length of the substring is: " + (meanLength / totalEntries));
+
+        }catch(FileNotFoundException e){
+            System.out.println("File not found.");
+        }
+        // Synthetic300000PwPairsV2.csv
     }
 }
