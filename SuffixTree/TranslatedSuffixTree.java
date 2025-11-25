@@ -32,7 +32,7 @@ class TranslatedSuffixTree{
     int activeEdge = -1;
     int activeLength = 0;
     int remainingSuffixCount = 0;
-    int leafEnd = -1;
+    int[] leafEndRef = new int[] {-1};
     int[] rootEnd = null;
     int[] splitEnd = null;
     int size = -1;
@@ -60,42 +60,52 @@ class TranslatedSuffixTree{
     }
 
     void extendSuffixTree(int pos){
-        leafEnd = pos;
+        leafEndRef[0] = pos;
         remainingSuffixCount++;
         lastNewNode = null;
 
         while(remainingSuffixCount > 0){
             if(activeLength == 0) activeEdge = pos;
-            int ch = text[activeEdge];
+            int ch = (int) text[activeEdge];
             if(activeNode.children[ch] == null){
-                activeNode.children[ch] = newNode(pos, new int[] {leafEnd});
+                activeNode.children[ch] = newNode(pos, leafEndRef);
 
                 if(lastNewNode != null){
                     lastNewNode.suffixLink = activeNode;
                     lastNewNode = null;
-                }else{
-                    Node next = activeNode.children[ch];
-                    if(walkDown(next)) continue;
-
-                    if(text[next.start + activeLength] == text[pos]){
-                        if((lastNewNode != null) && (activeNode != root)){
-                            lastNewNode.suffixLink = activeNode;
-                            lastNewNode = null;
-                        }
-                        activeLength++;
-                        break;
-                    }
-
-                    splitEnd = new int[] {next.start + activeLength - 1};
-                    Node split = newNode(next.start, splitEnd);
-                    activeNode.children[text[next.start]] = split;
-
-                    next.start += activeLength;
-                    split.children[text[next.start]] = next;
-
-                    if(lastNewNode != null) lastNewNode.suffixLink = split;
-                    lastNewNode = split;
                 }
+            }else{
+                Node next = activeNode.children[ch];
+                if(walkDown(next)) continue;
+
+                if(text[next.start + activeLength] == text[pos]){
+                    if((lastNewNode != null) && (activeNode != root)){
+                        lastNewNode.suffixLink = activeNode;
+                        lastNewNode = null;
+                    }
+                    activeLength++;
+                    break;
+                }
+
+                splitEnd = new int[] {next.start + activeLength - 1};
+                Node split = newNode(next.start, splitEnd);
+                activeNode.children[(int)text[next.start]] = split;
+
+                split.children[(int)text[pos]] = newNode(pos, leafEndRef);
+
+                next.start += activeLength;
+                split.children[(int)text[next.start]] = next;
+
+                if(lastNewNode != null) lastNewNode.suffixLink = split;
+                lastNewNode = split;
+            }
+
+            remainingSuffixCount--;
+            if(activeNode == root && activeLength > 0){
+                activeLength--;
+                activeEdge = pos - remainingSuffixCount + 1;
+            }else if (activeNode != root){
+                activeNode = activeNode.suffixLink;
             }
         }
     }
@@ -151,10 +161,14 @@ class TranslatedSuffixTree{
                 if(n.children[i] != null){
                     ret = doTraversal(n.children[i], labelHeight + edgeLength(n.children[i]), maxHeight, substringStartIndex);
 
-                    if(n.suffixIndex == -1) n.suffixIndex = ret;
-                    else if((n.suffixIndex == -2 && ret == -3) || (n.suffixIndex == -3 && ret == -2) || n.suffixIndex == -4){
+                    if (n.suffixIndex == -1)
+                        n.suffixIndex = ret;
+                    else if ((n.suffixIndex == -2 && ret == -3) ||
+                            (n.suffixIndex == -3 && ret == -2) ||
+                            n.suffixIndex == -4)
+                    {
                         n.suffixIndex = -4;
-                        if(maxHeight[0] < labelHeight){
+                        if (maxHeight[0] < labelHeight) {
                             maxHeight[0] = labelHeight;
                             substringStartIndex[0] = n.end[0] - labelHeight + 1;
                         }
@@ -175,14 +189,25 @@ class TranslatedSuffixTree{
         doTraversal(root, 0, maxHeight, substringStartIndex);
 
         int k;
-        for(k = 0; k < maxHeight[0]; k++) System.out.print(text[k + substringStartIndex[0]]);
-        if(k == 0) System.out.print("No common substring");
-        else System.out.print(", of length: " + maxHeight[0]);
-        System.out.println();
+        for(k = 0; k < maxHeight[0]; k++); // System.out.print(text[k + substringStartIndex[0]]);
+        if(k == 0); // System.out.print("No common substring");
+        else; // System.out.print(", of length: " + (maxHeight[0] + 1));
+        // System.out.println();
     }
 
     void setInputString(String s){
-        for(int i = 0; i < text.length; i++) text[i] = 0;
-        for(int i = 0; i < s.length() && i < text.length; i++) text[i] = s.charAt(i);
+        int i = 0;
+        for(; i < s.length() && i < text.length; i++) text[i] = s.charAt(i);
+        for(; i < text.length; i++) text[i] = 0;
+    }
+
+    public static void main(String[] args){
+        TranslatedSuffixTree tree = new TranslatedSuffixTree();
+        tree.size1 = 7;
+
+        System.out.print("Longest Common Substring in xancplucaskai99 and ancplucaskai997 is: ");
+        tree.setInputString("xancplucaskai99#ancplucaskai997$");
+        tree.buildSuffixTree();
+        tree.getLongestCommonSubstring();
     }
 }

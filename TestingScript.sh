@@ -14,3 +14,8 @@ javac *.java
 java Mini_LCSM_Testing
 
 cd ..
+cd SuffixTree
+javac *.java
+java TranslatedSuffixTreeTesting
+
+cd ..
