@@ -18,8 +18,8 @@ import java.io.*;
 class Mini_LCSM_Testing{
     public static final String COMMA_DELIMITER = ",";
     public static void main (String[] args){
-        String Y_1 = "ancplucaskai99";
-        String Y_2 = "ancplucaskai997";
+        String Y_1 = "ancplucaskai99ancplucaskai99";
+        String Y_2 = "ancplucaskai99ancplucaskai997";
         String X = Y_1 + Y_2;
         String P  = "";
         // System.out.println(X);
