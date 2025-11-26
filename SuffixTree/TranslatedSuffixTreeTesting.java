@@ -7,7 +7,7 @@ class TranslatedSuffixTreeTesting{
         for(int index = 0; index < 100; index++){
             TranslatedSuffixTree tree = new TranslatedSuffixTree();
             tree.size1 = 7;
-            tree.setInputString("xancplucaskai99#ancplucaskai997$");
+            tree.setInputString("ancplucaskai99ancplucaskai99#ancplucaskai99ancplucaskai997");
             tree.buildSuffixTree();
             tree.getLongestCommonSubstringTesting();
         }
