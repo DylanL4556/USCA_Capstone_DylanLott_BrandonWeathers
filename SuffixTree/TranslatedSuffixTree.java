@@ -1,5 +1,5 @@
 // Authors: Dylan Lott & Brandon Weathers
-// Date last updated:  11/25/2025 6:38 PM
+// Date last updated:  11/25/2025 7:01 PM
 
 import java.util.*;
 import java.io.*;
@@ -205,6 +205,25 @@ class TranslatedSuffixTree{
             totalEntries++;
         }
         System.out.println();
+    }
+
+    void getLongestCommonSubstringTesting(){
+        int[] maxHeight = new int[] {0};
+        int[] substringStartIndex = new int[] {0};
+        doTraversal(root, 0, maxHeight, substringStartIndex);
+
+        int k;
+        for(k = 0; k < maxHeight[0]; k++) // System.out.print(text[k + substringStartIndex[0]]);
+        if(k == 0){
+            // System.out.print("No common substring");
+            totalEntries++;
+        }
+        else{
+            // System.out.print(", of length: " + (maxHeight[0] + 1));
+            meanLength += (double) (maxHeight[0] + 1);
+            totalEntries++;
+        }
+        // System.out.println();
     }
 
     void setInputString(String s){
